@@ -68,12 +68,8 @@
 %-------------------------------------------------------------------------------
 %                required packages
 %-------------------------------------------------------------------------------
-% \AtEndPreamble hook (loading etoolbox instead of defining the macro, as to avoid incompatibilities with etoolbox (and packages relying on it) defining the macro too)
+
 \RequirePackage{etoolbox}
-%\let\@endpreamblehook\@empty
-%\def\AtEndPreamble{\g@addto@macro\@endpreamblehook}
-%\let\document@original\document
-%\def\document{\endgroup\@endpreamblehook\begingroup\document@original}
 
 % if... then... else... constructs
 \RequirePackage{ifthen}
@@ -82,39 +78,12 @@
 % color
 \RequirePackage{xcolor}
 
-% font loading
-%\usepackage{ifxetex,ifluatex}
-%\newif\ifxetexorluatex
-%\ifxetex
-%  \xetexorluatextrue
-%\else
-%  \ifluatex
-%    \xetexorluatextrue
-%  \else
-%    \xetexorluatexfalse
-%  \fi
-%\fi
-% automatic loading of latin modern fonts
-%\ifxetexorluatex
-%  \RequirePackage{fontspec}
-%  \defaultfontfeatures{Ligatures=TeX}
-%  \RequirePackage{unicode-math}
-%  \setmainfont{Latin Modern}
-%  \setsansfont{Latin Modern Sans}
-%  \setmathfont{Latin Modern Math}
-%\else
   \RequirePackage[T1]{fontenc}
   \IfFileExists{lmodern.sty}%
     {\RequirePackage{lmodern}}%
     {}
-%\fi
 
-% MarVoSym font for symbols
-%\RequirePackage{marvosym}
 \newcommand*{\marvosymbol}[1]{}
-%\ifxetexorluatex
-%  \renewcommand*{\marvosymbol}[1]{{\fontspec{MarVoSym}\char#1}}
-%\else
   \renewcommand*{\marvosymbol}[1]{{\fontfamily{mvs}\fontencoding{U}\fontseries{m}\fontshape{n}\selectfont\char#1}}
 %\fi
 
@@ -126,7 +95,7 @@
   \RequirePackage[unicode]{hyperref}% unicode is required for unicode pdf metadata
   \hypersetup{
     breaklinks,
-    baseurl       = http://,
+    baseurl       = http://www.deepakchethan.github.io,
     pdfborder     = 0 0 0,
     pdfpagemode   = UseNone,% do not show thumbnails or bookmarks on opening
     pdfstartpage  = 1,
@@ -169,7 +138,6 @@
 
 % advanced command arguments (LaTeX 3)
 \RequirePackage{xargs}
-% TODO (?): replace all \newcommand by \NewDocumentCommand
 
 % micro-typography (e.g., character protrusion, font expansion, hyphenatable letterspacing)
 \RequirePackage{microtype}
@@ -194,10 +162,6 @@
 \setlength\arrayrulewidth{.4\p@}
 \setlength\doublerulesep{2\p@}
 
-% not set on purpose
-%\setlength\arraycolsep{5\p@}
-%\setlength\tabcolsep{6\p@}
-%\setlength\tabbingsep{\labelsep}
 
 \raggedbottom
 \onecolumn
