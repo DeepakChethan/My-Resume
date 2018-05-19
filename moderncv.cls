@@ -180,6 +180,7 @@
 \newcommand*{\fax}[1]{\def\@fax{#1}}
 \newcommand*{\email}[1]{\def\@email{#1}}
 \newcommand*{\homepage}[2]{\def\@homepage{#1}\def\@homepagetitle{#2}}
+\newcommand*{\github}[1]{\def\@github{#1}}
 
 % colors
 \definecolor{color0}{rgb}{0,0,0}% main default color, normally left to black
